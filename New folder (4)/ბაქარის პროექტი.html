@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>კიბე - განათლებული მომავლისკენ | Kibe.edu.ge</title>
+    <!-- FontAwesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-blue: #1e3a8a;
+            --secondary-blue: #2563eb;
+            --accent-orange: #f97316;
+            --accent-green: #16a34a;
+            --light-bg: #f8fafc;
+            --dark-text: #1e293b;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--dark-text);
+            line-height: 1.6;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary-blue);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--accent-orange);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-orange);
+        }
+
+        .btn-register {
+            background-color: var(--accent-orange);
+            color: var(--white) !important;
+            padding: 0.6rem 1.4rem;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: background 0.3s, transform 0.2s;
+            text-decoration: none;
+        }
+
+        .btn-register:hover {
+            background-color: #ea580c;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            color: var(--white);
+            padding: 5rem 2rem;
+            text-align: center;
+            border-bottom: 5px solid var(--accent-green);
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-green {
+            background-color: var(--accent-green);
+            color: var(--white);
+            padding: 0.8rem 1.8rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .btn-green:hover {
+            background-color: #15803d;
+        }
+
+        /* Main Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            color: var(--primary-blue);
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent-orange);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Programs Grid */
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .program-card {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+            border-top: 5px solid var(--accent-orange);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .program-card:nth-child(2) {
+            border-top-color: var(--secondary-blue);
+        }
+
+        .program-card:nth-child(3) {
+            border-top-color: var(--accent-green);
+        }
+
+        .program-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 25px rgba(0,0,0,0.15);
+        }
+
+        .program-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: opacity 0.3s;
+        }
+
+        .program-card:hover img {
+            opacity: 0.9;
+        }
+
+        .program-content {
+            padding: 1.5rem;
+        }
+
+        .program-content h3 {
+            color: var(--primary-blue);
+            margin-bottom: 0.8rem;
+        }
+
+        .btn-details {
+            display: inline-block;
+            margin-top: 1rem;
+            color: var(--secondary-blue);
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .btn-details:hover {
+            color: var(--accent-orange);
+        }
+
+        /* Team Section */
+        .team-section {
+            background-color: var(--white);
+            border-radius: 20px;
+            padding: 3rem 2rem;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            margin-top: 3rem;
+            border-left: 8px solid var(--secondary-blue);
+        }
+
+        .team-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .team-header h2 {
+            font-size: 2.2rem;
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .team-header p {
+            color: var(--accent-green);
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .team-img-container {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .team-img-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+        }
+
+        /* Photo Gallery Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            height: 220px;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-item img:hover {
+            transform: scale(1.08);
+        }
+
+        /* Modal Lightbox / Info Window */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.75);
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            animation: fadeIn 0.3s ease;
+            overflow-y: auto;
+        }
+
+        .modal-body {
+            background-color: var(--white);
+            max-width: 850px;
+            width: 100%;
+            border-radius: 16px;
+            padding: 2.5rem;
+            position: relative;
+            max-height: 85vh;
+            overflow-y: auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .modal-body h2 {
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+            border-bottom: 3px solid var(--accent-orange);
+            padding-bottom: 0.5rem;
+        }
+
+        .modal-body h3 {
+            color: var(--accent-orange);
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .modal-body ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .modal-body li {
+            margin-bottom: 0.5rem;
+        }
+
+        .price-box {
+            background-color: var(--light-bg);
+            border-left: 5px solid var(--accent-green);
+            padding: 1.2rem 1.5rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            color: var(--dark-text);
+            font-size: 30px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .modal-close:hover {
+            color: var(--accent-orange);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Floating Messenger Chat Button */
+        .floating-chat {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background-color: var(--secondary-blue);
+            color: var(--white);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.8rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            text-decoration: none;
+            transition: transform 0.3s, background 0.3s;
+            z-index: 1000;
+        }
+
+        .floating-chat:hover {
+            transform: scale(1.1);
+            background-color: var(--accent-orange);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        footer a {
+            color: var(--accent-orange);
+            text-decoration: none;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .nav-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .modal-body {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navbar -->
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <i class="fa-solid fa-graduation-cap" style="color: var(--accent-orange);"></i>
+                კ ი ბ ე <span>.edu.ge</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#programs">პროგრამები</a></li>
+                <li><a href="#team">ჩვენი გუნდი</a></li>
+                <li><a href="#gallery">გალერეა</a></li>
+                <li><a href="#contact">კონტაქტი</a></li>
+                <li>
+                    <a href="https://docs.google.com/spreadsheets" target="_blank" class="btn-register">
+                        <i class="fa-solid fa-pen-to-square"></i> რეგისტრაცია
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>კიბე - განათლებული მომავლისკენ</h1>
+        <p>საკვირაო სკოლა მოზარდებისთვის: აღმოაჩინე თამაშით, განავითარე აზროვნება და გამოიყენე ახალი შესაძლებლობები!</p>
+        <div class="hero-btns">
+            <a href="https://docs.google.com/spreadsheets" target="_blank" class="btn-register">გახდი მოსწავლე</a>
+            <a href="#programs" class="btn-green">იხილეთ პროგრამები</a>
+        </div>
+    </section>
+
+    <!-- Main Container -->
+    <div class="container">
+
+        <!-- Programs Section -->
+        <section id="programs">
+            <h2 class="section-title">სასწავლო პროგრამები</h2>
+            <div class="programs-grid">
+                
+                <!-- Program 1 (V-VI Class) -->
+                <div class="program-card" onclick="openProgramModal('v-vi')">
+                    <img src="იმგ2.jpg" alt="V-VI კლასის პროგრამა">
+                    <div class="program-content">
+                        <h3>პროგრამა V-VI კლასის მოსწავლეებისთვის</h3>
+                        <p><strong>„აღმოაჩინე თამაშით“</strong></p>
+                        <p>9 თვე - 63 შეხვედრა | 4 თემატური ბლოკი | საგანმანათლებლო ექსკურსია.</p>
+                        <span class="btn-details"><i class="fa-solid fa-circle-info"></i> დააჭირეთ სრული ინფორმაციისთვის</span>
+                    </div>
+                </div>
+
+                <!-- Program 2 (VII-VIII Class) -->
+                <div class="program-card" onclick="openProgramModal('vii-viii')">
+                    <img src="იმგ1.jpg" alt="VII-VIII კლასის პროგრამა">
+                    <div class="program-content">
+                        <h3>პროგრამა VII-VIII კლასის მოსწავლეებისთვის</h3>
+                        <p><strong>„აზროვნების კიბე“</strong></p>
+                        <p>9 თვე - 72 შეხვედრა | 4 სავალდებულო და 3 არჩევითი ბლოკი | მინიმუმ 1 პროექტი.</p>
+                        <span class="btn-details"><i class="fa-solid fa-circle-info"></i> დააჭირეთ სრული ინფორმაციისთვის</span>
+                    </div>
+                </div>
+
+                <!-- Program 3 (IX-X Class) -->
+                <div class="program-card" onclick="openProgramModal('ix-x')">
+                    <img src="იმგ3.jpg" alt="IX-X კლასის პროგრამა">
+                    <div class="program-content">
+                        <h3>პროგრამა IX-X კლასის მოსწავლეებისთვის</h3>
+                        <p><strong>„შესაძლებლობების კიბე“</strong></p>
+                        <p>9 თვე - 72 შეხვედრა | 4 სავალდებულო და 3 არჩევითი ბლოკი | მინიმუმ 1 სამეწარმეო პროექტი.</p>
+                        <span class="btn-details"><i class="fa-solid fa-circle-info"></i> დააჭირეთ სრული ინფორმაციისთვის</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Team Section -->
+        <section id="team" class="team-section">
+            <div class="team-header">
+                <h2>ჩვენი განახლებული, ძლიერი გუნდი!</h2>
+                <p>კიბე - საკვირაო სკოლა (დააკლიკეთ გიორგი ბახბავას ფოტოს)</p>
+            </div>
+            <div class="team-img-container">
+                <!-- Image Map applied to Team Image -->
+                <img id="teamImg" src="825286472_122143641627164611_465900608273606569_n.jpg" usemap="#team-map" alt="ჩვენი განახლებული, ძლიერი გუნდი">
+                
+                <map name="team-map">
+                    <!-- გიორგი ბახბავას ფოტოს კოორდინატები (ცენტრალურ წრეში) -->
+                    <area shape="circle" coords="515,550,110" href="https://www.youtube.com/watch?v=UZw7y0-txpI" target="_blank" alt="გიორგი ბახბავა - YouTube" title="გიორგი ბახბავა - ნახეთ ვიდეო YouTube-ზე">
+                </map>
+            </div>
+        </section>
+
+        <!-- Photo Gallery Section -->
+        <section id="gallery" style="margin-top: 4rem;">
+            <h2 class="section-title">ფოტო გალერეა</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item" onclick="openImageModal(this.querySelector('img').src)">
+                    <img src="645705189_122117736327164611_6630886140423298927_n.jpg" alt="საკვირაო სკოლის აქტივობა 1">
+                </div>
+                <div class="gallery-item" onclick="openImageModal(this.querySelector('img').src)">
+                    <img src="645708273_122117736417164611_7024713644686777898_n.jpg" alt="საკვირაო სკოლის აქტივობა 2">
+                </div>
+                <div class="gallery-item" onclick="openImageModal(this.querySelector('img').src)">
+                    <img src="645755948_122117736171164611_24960447270885405_n.jpg" alt="საკვირაო სკოლის აქტივობა 3">
+                </div>
+                <div class="gallery-item" onclick="openImageModal(this.querySelector('img').src)">
+                    <img src="645816367_122117736693164611_1701978029062734557_n.jpg" alt="საკვირაო სკოლის აქტივობა 4">
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" style="margin-top: 4rem;">
+            <h2 class="section-title">კონტაქტი</h2>
+            <div style="text-align: center; font-size: 1.1rem;">
+                <p><i class="fa-solid fa-globe" style="color: var(--secondary-blue);"></i> ვებ-გვერდი: <strong>Kibe.edu.ge</strong></p>
+                <p><i class="fa-brands fa-facebook" style="color: var(--secondary-blue);"></i> <a href="https://www.facebook.com/p/%E1%83%99%E1%83%98%E1%83%91%E1%83%98%E1%83%94-%E1%83%92%E1%83%90%E1%83%9C%E1%83%90%E1%83%97%E1%83%9A%E1%83%94%E1%83%91%E1%83%A3%E1%83%9A%E1%83%98-%E1%83%9B%E1%83%9D%E1%83%9B%E1%83%90%E1%83%95%E1%83%9A%E1%83%98%E1%83%A1%E1%83%99%E1%83%94%E1%83%9C-Stairway-to-Educated-Future-61584938332508/" target="_blank">Facebook გვერდი</a></p>
+                <p><i class="fa-brands fa-instagram" style="color: var(--accent-orange);"></i> <a href="https://www.instagram.com/kibe.education/" target="_blank">Instagram გვერდი</a></p>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Modal for Program Details -->
+    <div id="programModal" class="modal">
+        <div class="modal-body">
+            <span class="modal-close" onclick="closeModal('programModal')">&times;</span>
+            <div id="programModalContent">
+                <!-- Dynamic Content via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Gallery Lightbox -->
+    <div id="imageModal" class="modal">
+        <span class="modal-close" style="color:#fff;" onclick="closeModal('imageModal')">&times;</span>
+        <img id="modalImg" style="max-width:90%; max-height:90vh; border-radius:8px; object-fit:contain;">
+    </div>
+
+    <!-- Floating Messenger Chat Button -->
+    <a href="https://m.me/61584938332508" target="_blank" class="floating-chat" title="მოგვწერეთ მესენჯერში">
+        <i class="fa-brands fa-facebook-messenger"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 კიბე - განათლებული მომავლისკენ. ყველა უფლება დაცულია | ავტორი: სასწავლო ჯგუფი</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // სამივე პროგრამის სრული დეტალური აღწერა
+        const programDetails = {
+            'v-vi': `
+                <h2>V-VI კლასის პროგრამა - „კიბე - განათლებული მომავლისკენ“</h2>
+                <p>V-VI კლასების მოსწავლეებს სთავაზობს საგანმანათლებლო პროგრამას, რომელიც ბავშვის განვითარებას მხოლოდ აკადემიურ ცოდნაზე არ ამყარებს.</p>
+                <p>ამ ასაკში განსაკუთრებით მნიშვნელოვანია ბავშვის ინტერესების გაღვივება, საკუთარი აზრის თავისუფლად გამოხატვა, მოსმენა, მსჯელობა, კომუნიკაცია და სხვებთან თანამშრომლობა.</p>
+                <p>სწორედ ამიტომ, „კიბეს საკვირაო სკოლაში“ სწავლა ხდება კითხვით, დისკუსიით, თამაშით, ხელოვნებითა და პრაქტიკული გამოცდილებით.</p>
+                
+                <h3>რას მოიცავს პროგრამა?</h3>
+                <ul>
+                    <li><strong>მხატვრული ლიტერატურის კითხვა და განხილვა:</strong> ბავშვები წინასწარ მიიღებენ ასაკის შესაბამის მხატვრულ ნაწარმოებს, რომელსაც დამოუკიდებლად წაიკითხავენ, ხოლო შეხვედრაზე ერთად განიხილავენ.</li>
+                    <li><strong>ფილმებისა და სპექტაკლების ჩვენება და განხილვა:</strong> პროგრამის ფარგლებში ბავშვები გაეცნობიან საინტერესო ფილმებსა და სპექტაკლებს, რასაც მოჰყვება სიღრმისეული მსჯელობა.</li>
+                    <li><strong>ინტელექტუალური ვიქტორინები და სამაგიდო თამაშები:</strong> ლოგიკური და კრიტიკული აზროვნების, ყურადღებისა და გუნდური მუშაობის განვითარება.</li>
+                    <li><strong>მეტყველებისა და საჯარო საუბრის წრე:</strong> სწორი და გამართული მეტყველება, აზრის ჩამოყალიბება და აუდიტორიის წინაშე გამოსვლა.</li>
+                    <li><strong>საგანმანათლებლო ექსკურსია:</strong> 1 საგანმანათლებლო ექსკურსია მიღებული ცოდნის რეალობასთან დასაკავშირებლად.</li>
+                </ul>
+
+                <div class="price-box">
+                    <p><strong>პროგრამის საფასური:</strong> 120 ლარი თვეში</p>
+                    <p><strong>სრული კურსი:</strong> 9 თვე - 63 შეხვედრა</p>
+                    <p style="margin-top:0.5rem;"><strong>ფასდაკლებები:</strong></p>
+                    <ul>
+                        <li>სრული 9-თვიანი კურსის საფასურის ერთიანად გადახდისას - <strong>20% ფასდაკლება</strong>;</li>
+                        <li>დედმამიშვილების მონაწილეობისას - <strong>30% ფასდაკლება</strong>.</li>
+                    </ul>
+                </div>
+
+                <div style="text-align: center; margin-top: 1.5rem;">
+                    <a href="https://docs.google.com/spreadsheets" target="_blank" class="btn-register" style="padding: 0.8rem 2rem; display: inline-block;">
+                        <i class="fa-solid fa-pen-to-square"></i> რეგისტრაცია V-VI კლასის პროგრამაზე
+                    </a>
+                </div>
+            `,
+            'vii-viii': `
+                <h2>VII-VIII კლასის პროგრამა - „კიბე - განათლებული მომავლისკენ“</h2>
+                <p>VII-VIII კლასების მოსწავლეებს სთავაზობს პროგრამას, რომელიც ავითარებს დამოუკიდებელ აზროვნებას, მსჯელობის, კომუნიკაციის, გუნდური მუშაობისა და საკუთარი იდეების რეალიზების უნარებს.</p>
+                
+                <h3>სავალდებულო ძირითადი ბლოკი:</h3>
+                <ul>
+                    <li><strong>წიგნის კითხვა და განხილვა:</strong> ყოველთვიური საკითხავი წიგნი და დისკუსია.</li>
+                    <li><strong>ფილმისა და სპექტაკლის ჩვენება - განხილვა:</strong> კინო/თეატრის ანალიზი და მსჯელობა.</li>
+                    <li><strong>ინტელექტუალური და სამაგიდო თამაშები:</strong> „რა? სად? როდის?“, „ბრეინ-რინგი“, „ერუდიტი“, „ჯეპარდი“ და სამაგიდო თამაშები.</li>
+                    <li><strong>დებატების სკოლა:</strong> არგუმენტაცია, კრიტიკული აზროვნება და წლის ბოლოს გუნდური დებატები.</li>
+                    <li><strong>სალონური საუბრები:</strong> 2 შეხვედრა მოწვეულ ცნობილ ადამიანებთან.</li>
+                </ul>
+
+                <h3>არჩევითი მიმართულებები:</h3>
+                <ul>
+                    <li><strong>ონლაინ-მედიის კურსი:</strong> კონტენტი Facebook, YouTube და TikTok-ისთვის (სცენარი, ოპერატორობა, მონტაჟი).</li>
+                    <li><strong>პროგრამირება და ხელოვნური ინტელექტის გამოყენება:</strong> პროგრამირების საფუძვლები და AI ინსტრუმენტები.</li>
+                    <li><strong>გრაფიკული დიზაინი:</strong> ვიზუალური კომუნიკაცია და კრეატიული იდეები.</li>
+                </ul>
+
+                <div class="price-box">
+                    <p><strong>ძირითადი სავალდებულო პროგრამა:</strong> 120 ლარი თვეში</p>
+                    <p><strong>არჩევითი კურსი:</strong> 30 ლარი თვეში თითო მიმართულება</p>
+                    <p style="margin-top:0.5rem;"><strong>ფასდაკლებები:</strong></p>
+                    <ul>
+                        <li>სრული 9-თვიანი კურსის ერთიანად გადახდისას - <strong>20% ფასდაკლება</strong>;</li>
+                        <li>დედმამიშვილების მონაწილეობისას - <strong>30% ფასდაკლება</strong>.</li>
+                    </ul>
+                </div>
+
+                <div style="text-align: center; margin-top: 1.5rem;">
+                    <a href="https://docs.google.com/spreadsheets" target="_blank" class="btn-register" style="padding: 0.8rem 2rem; display: inline-block;">
+                        <i class="fa-solid fa-pen-to-square"></i> რეგისტრაცია VII-VIII კლასის პროგრამაზე
+                    </a>
+                </div>
+            `,
+            'ix-x': `
+                <h2>IX-X კლასის პროგრამა - „კიბე - განათლებული მომავლისკენ“</h2>
+                <p>IX-X კლასების მოსწავლეებს სთავაზობს პროგრამას, რომელიც ეხმარება მათ საკუთარი ინტერესების, შესაძლებლობებისა და მომავლის უკეთ გააზრებაში.</p>
+                
+                <h3>სავალდებულო ძირითადი ბლოკი:</h3>
+                <ul>
+                    <li><strong>წიგნის კითხვა და განხილვა:</strong> თვეში ერთი წიგნი - ერთი დიდი საუბარი.</li>
+                    <li><strong>ფილმისა და სპექტაკლის ჩვენება - განხილვა:</strong> სიუჟეტის, მოტივებისა და რეჟისორული გადაწყვეტების ანალიზი.</li>
+                    <li><strong>ინტელექტკლუბი და სამაგიდო თამაშები:</strong> „რა? სად? როდის?“, „ჯეპარდი“, კატანი, რისკი, დიქსითი.</li>
+                    <li><strong>პროფესიული ორიენტაცია და მეწარმეობის საფუძვლები:</strong> ბიზნესიდეა, პროდუქტი, ბრენდი, მარკეტინგი და მცირე პროექტები.</li>
+                    <li><strong>სალონური საუბრები:</strong> შეხვედრები მოწვეულ სტუმრებთან.</li>
+                </ul>
+
+                <h3>არჩევითი მიმართულებები:</h3>
+                <ul>
+                    <li><strong>ონლაინ-მედიის კურსი:</strong> კონტენტის შექმნა Facebook, YouTube და TikTok პლატფორმებისთვის.</li>
+                    <li><strong>პროგრამირება და ხელოვნური ინტელექტის გამოყენება:</strong> AI-ს პრაქტიკული გამოყენება და მარტივი საიტების შექმნა.</li>
+                    <li><strong>გრაფიკული დიზაინი:</strong> ვიზუალური კომუნიკაციის პრინციპები.</li>
+                </ul>
+
+                <div class="price-box">
+                    <p><strong>ძირითადი სავალდებულო პროგრამა:</strong> 120 ლარი თვეში</p>
+                    <p><strong>არჩევითი კურსი:</strong> 30 ლარი თვეში თითო მიმართულება</p>
+                    <p style="margin-top:0.5rem;"><strong>ფასდაკლებები:</strong></p>
+                    <ul>
+                        <li>სრული 9-თვიანი კურსის ერთიანად გადახდისას - <strong>20% ფასდაკლება</strong>;</li>
+                        <li>დედმამიშვილების მონაწილეობისას - <strong>30% ფასდაკლება</strong>.</li>
+                    </ul>
+                </div>
+
+                <div style="text-align: center; margin-top: 1.5rem;">
+                    <a href="https://docs.google.com/spreadsheets" target="_blank" class="btn-register" style="padding: 0.8rem 2rem; display: inline-block;">
+                        <i class="fa-solid fa-pen-to-square"></i> რეგისტრაცია IX-X კლასის პროგრამაზე
+                    </a>
+                </div>
+            `
+        };
+
+        // პროგრამის მოდალის გახსნა
+        function openProgramModal(type) {
+            const modal = document.getElementById("programModal");
+            const content = document.getElementById("programModalContent");
+            content.innerHTML = programDetails[type] || "<p>ინფორმაცია მალე დაემატება.</p>";
+            modal.style.display = "flex";
+        }
+
+        // გალერეის სურათის გახსნა
+        function openImageModal(src) {
+            const modal = document.getElementById("imageModal");
+            const modalImg = document.getElementById("modalImg");
+            modalImg.src = src;
+            modal.style.display = "flex";
+        }
+
+        // მოდალის დახურვა
+        function closeModal(id) {
+            document.getElementById(id).style.display = "none";
+        }
+
+        // ფონზე დაჭერით დახურვა
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = "none";
+            }
+        };
+
+        // Responsive Image Map Auto-Resize Script
+        function resizeMap() {
+            const img = document.getElementById('teamImg');
+            const area = document.querySelector('map[name="team-map"] area');
+            if (!img || !area) return;
+
+            // Original image dimensions
+            const origWidth = 1000;
+            const origHeight = 1000;
+            const currentWidth = img.clientWidth || img.offsetWidth;
+
+            if (currentWidth > 0) {
+                const scale = currentWidth / origWidth;
+                const origX = 500;
+                const origY = 530;
+                const origRadius = 110;
+
+                const newX = Math.round(origX * scale);
+                const newY = Math.round(origY * scale);
+                const newRadius = Math.round(origRadius * scale);
+
+                area.coords = `${newX},${newY},${newRadius}`;
+            }
+        }
+
+        window.addEventListener('load', resizeMap);
+        window.addEventListener('resize', resizeMap);
+    </script>
+
+</body>
+</html>
