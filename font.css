@@ -1,0 +1,14 @@
+/* 1. ფონტის იმპორტი და დასახელება */
+@font-face {
+  font-family: '3DUnicode';
+  src: url('fonts/3d_unicode.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* 2. ფონტის გამოყენება საიტის სათაურზე */
+.site-header-title, 
+.header h1, 
+.logo-text {
+  font-family: '3d_unicode.ttf', sans-serif !important;
+}
