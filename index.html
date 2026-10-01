@@ -7,6 +7,14 @@
     <!-- FontAwesome icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* custom შრიფტის ჩატვირთვა */
+        @font-face {
+            font-family: 'LTSH SU';
+            src: url('LTSH-SU.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
         :root {
             --primary-blue: #1e3a8a;
             --secondary-blue: #2563eb;
@@ -15,6 +23,7 @@
             --light-bg: #f8fafc;
             --dark-text: #1e293b;
             --white: #ffffff;
+            --custom-font: 'LTSH SU', 'Segoe UI', Tahoma, sans-serif;
         }
 
         * {
@@ -104,9 +113,12 @@
             border-bottom: 5px solid var(--accent-green);
         }
 
+        /* სათაურზე ახალი შრიფტის გამოყენება */
         .hero h1 {
+            font-family: var(--custom-font);
             font-size: 2.8rem;
             margin-bottom: 1rem;
+            letter-spacing: 0.5px;
         }
 
         .hero p {
@@ -431,9 +443,11 @@
     </style>
 </head>
 <body>
-
+    
     <!-- Header / Navbar -->
     <header>
+        <link rel="icon" type="image/x-icon" href="logo.png">
+        
         <div class="nav-container">
             <a href="#" class="logo">
                 <i class="fa-solid fa-graduation-cap" style="color: var(--accent-orange);"></i>
@@ -514,11 +528,9 @@
                 <p>კიბე - საკვირაო სკოლა (დააკლიკეთ გიორგი ბახბავას ფოტოს)</p>
             </div>
             <div class="team-img-container">
-                <!-- Image Map applied to Team Image -->
                 <img id="teamImg" src="825286472_122143641627164611_465900608273606569_n.jpg" usemap="#team-map" alt="ჩვენი განახლებული, ძლიერი გუნდი">
                 
                 <map name="team-map">
-                    <!-- გიორგი ბახბავას ფოტოს კოორდინატები (ცენტრალურ წრეში) -->
                     <area shape="circle" coords="515,550,110" href="https://www.youtube.com/watch?v=UZw7y0-txpI" target="_blank" alt="გიორგი ბახბავა - YouTube" title="გიორგი ბახბავა - ნახეთ ვიდეო YouTube-ზე">
                 </map>
             </div>
@@ -559,9 +571,7 @@
     <div id="programModal" class="modal">
         <div class="modal-body">
             <span class="modal-close" onclick="closeModal('programModal')">&times;</span>
-            <div id="programModalContent">
-                <!-- Dynamic Content via JS -->
-            </div>
+            <div id="programModalContent"></div>
         </div>
     </div>
 
@@ -583,7 +593,6 @@
 
     <!-- JavaScript -->
     <script>
-        // სამივე პროგრამის სრული დეტალური აღწერა
         const programDetails = {
             'v-vi': `
                 <h2>V-VI კლასის პროგრამა - „კიბე - განათლებული მომავლისკენ“</h2>
@@ -690,7 +699,6 @@
             `
         };
 
-        // პროგრამის მოდალის გახსნა
         function openProgramModal(type) {
             const modal = document.getElementById("programModal");
             const content = document.getElementById("programModalContent");
@@ -698,7 +706,6 @@
             modal.style.display = "flex";
         }
 
-        // გალერეის სურათის გახსნა
         function openImageModal(src) {
             const modal = document.getElementById("imageModal");
             const modalImg = document.getElementById("modalImg");
@@ -706,27 +713,22 @@
             modal.style.display = "flex";
         }
 
-        // მოდალის დახურვა
         function closeModal(id) {
             document.getElementById(id).style.display = "none";
         }
 
-        // ფონზე დაჭერით დახურვა
         window.onclick = function(event) {
             if (event.target.classList.contains('modal')) {
                 event.target.style.display = "none";
             }
         };
 
-        // Responsive Image Map Auto-Resize Script
         function resizeMap() {
             const img = document.getElementById('teamImg');
             const area = document.querySelector('map[name="team-map"] area');
             if (!img || !area) return;
 
-            // Original image dimensions
             const origWidth = 1000;
-            const origHeight = 1000;
             const currentWidth = img.clientWidth || img.offsetWidth;
 
             if (currentWidth > 0) {
