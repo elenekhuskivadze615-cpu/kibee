@@ -7,10 +7,10 @@
     <!-- FontAwesome icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* custom შრიფტის ჩატვირთვა */
+        /* თქვენი 3d_unicode.ttf შრიფტის ჩატვირთვა */
         @font-face {
-            font-family: 'LTSH SU';
-            src: url('LTSH-SU.ttf') format('truetype');
+            font-family: '3D Unicode';
+            src: url('3d_unicode.ttf') format('truetype');
             font-weight: normal;
             font-style: normal;
         }
@@ -23,7 +23,8 @@
             --light-bg: #f8fafc;
             --dark-text: #1e293b;
             --white: #ffffff;
-            --custom-font: 'LTSH SU', 'Segoe UI', Tahoma, sans-serif;
+            /* ახალი შრიფტის ცვლადი */
+            --custom-font: '3D Unicode', 'Segoe UI', Tahoma, sans-serif;
         }
 
         * {
@@ -113,9 +114,12 @@
             border-bottom: 5px solid var(--accent-green);
         }
 
-        /* სათაურზე ახალი შრიფტის გამოყენება */
+        /* მთავარ სათაურსა და სექციების სათაურებზე ახალი შრიფტის გამოყენება */
+        .hero h1, .section-title {
+            font-family: var(--custom-font) !important;
+        }
+
         .hero h1 {
-            font-family: var(--custom-font);
             font-size: 2.8rem;
             margin-bottom: 1rem;
             letter-spacing: 0.5px;
@@ -222,6 +226,7 @@
         .program-content h3 {
             color: var(--primary-blue);
             margin-bottom: 0.8rem;
+            font-family: var(--custom-font);
         }
 
         .btn-details {
@@ -255,6 +260,7 @@
             font-size: 2.2rem;
             color: var(--primary-blue);
             margin-bottom: 0.5rem;
+            font-family: var(--custom-font);
         }
 
         .team-header p {
@@ -339,6 +345,7 @@
             font-size: 1.8rem;
             border-bottom: 3px solid var(--accent-orange);
             padding-bottom: 0.5rem;
+            font-family: var(--custom-font);
         }
 
         .modal-body h3 {
